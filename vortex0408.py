@@ -113,17 +113,17 @@ if __name__ == "__main__":
     truca = PINN_train(params=paramsa, model=model, ori = 0.01,  n=5, infin=7.5)
 
     paramsa = truca.train(1000, lr=1e-1)
-    #paramsa = truca.train(1000, lr=1e-2)
-    #paramsa = truca.train(1000, lr=5e-3)
-    #paramsa = truca.train(1000, lr=1e-3)
+    paramsa = truca.train(1000, lr=1e-2)
+    paramsa = truca.train(1000, lr=5e-3)
+    paramsa = truca.train(1000, lr=1e-3)
 
-    print("Next profile")
+    #print("Next profile")
 
-    paramsb = model.init(jax.random.key(3), data_ini)
+    #paramsb = model.init(jax.random.key(3), data_ini)
 
-    trucb = PINN_train(params=paramsb, model=model, ori=0.01 , n=10, infin=9)
+    #trucb = PINN_train(params=paramsb, model=model, ori=0.01 , n=10, infin=9)
 
-    paramsb = trucb.train(1000, lr=1e-1)
+    #paramsb = trucb.train(1000, lr=1e-1)
     #paramsb = trucb.train(1000, lr=1e-3)
     #paramsb = trucb.train(1000, lr=1e-5)
     #paramsb = trucb.train(1000, lr=1e-7)
@@ -140,26 +140,26 @@ if __name__ == "__main__":
     #paramsc = trucc.train(1000, lr=1e-3)
     #paramsc = trucc.train(500, lr=1e-4)
 #
-    data_plot = jnp.linspace(0, 10, 500)[:, None]
+    #data_plot = jnp.linspace(0, 10, 500)[:, None]
 
-    fig = plt.figure()
-    ax = fig.add_subplot()
+    #fig = plt.figure()
+    #ax = fig.add_subplot()
 
 
 
-    ax.plot(data_plot, jnp.tanh(data_plot) ** (truc.n) * truc.U(data_plot), color='blue', label=f"n = {truc.n}")
-    ax.plot(data_plot, jnp.tanh(data_plot) ** (truca.n) * truca.U(data_plot), color= 'red', label= f"n = {truca.n}")
-    ax.plot(data_plot, jnp.tanh(data_plot) ** (trucb.n) * trucb.U(data_plot), color='green', label=f"n = {trucb.n}")
+    #ax.plot(data_plot, jnp.tanh(data_plot) ** (truc.n) * truc.U(data_plot), color='blue', label=f"n = {truc.n}")
+    #ax.plot(data_plot, jnp.tanh(data_plot) ** (truca.n) * truca.U(data_plot), color= 'red', label= f"n = {truca.n}")
+    #ax.plot(data_plot, jnp.tanh(data_plot) ** (trucb.n) * trucb.U(data_plot), color='green', label=f"n = {trucb.n}")
     #ax.plot(data_plot, jnp.tanh(data_plot) ** (trucc.n) * trucc.U(data_plot), color='orange', label=f"n = {trucc.n}")
-    ax.legend()
-    ax.set_xlabel("sinh r")
-    ax.set_ylabel("U_n")
-    ax.set_title("Profiles of G-P vortices")
+    #ax.legend()
+    #ax.set_xlabel("sinh r")
+    #ax.set_ylabel("U_n")
+    #ax.set_title("Profiles of G-P vortices")
 
     #Either save or remove
 
     #fig.savefig("talkFRGntegrta.pdf", dpi=400)
-    plt.show()
+    #plt.show()
     #Remove at the end
 
     #End plotting
